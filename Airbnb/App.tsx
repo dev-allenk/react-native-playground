@@ -9,10 +9,10 @@
  */
 import 'react-native-gesture-handler'
 import React from 'react'
-import { ScrollView, StatusBar, useColorScheme } from 'react-native'
+import { StatusBar, useColorScheme } from 'react-native'
 import HomeScreen from './src/screens/Home'
-import Post from './src/components/Post'
-import FEED_DATA from './assets/data/feed'
+
+import SearchResults from './src/screens/SearchResults'
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark'
@@ -21,11 +21,7 @@ const App = () => {
     <>
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
       {/* <HomeScreen /> */}
-      <ScrollView>
-        {FEED_DATA.map(data => (
-          <Post key={data.id} data={data} />
-        ))}
-      </ScrollView>
+      <SearchResults />
     </>
   )
 }
