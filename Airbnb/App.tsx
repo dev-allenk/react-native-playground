@@ -14,6 +14,7 @@ import HomeScreen from './src/screens/Home'
 
 import SearchResults from './src/screens/SearchResults'
 import DestinationSearch from './src/screens/DestinationSearch'
+import Guests from './src/screens/Guests'
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark'
@@ -23,7 +24,8 @@ const App = () => {
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
       {/* <HomeScreen /> */}
       {/* <SearchResults /> */}
-      <DestinationSearch />
+      {/* <DestinationSearch /> */}
+      <Guests />
     </>
   )
 }
