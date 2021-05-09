@@ -1,32 +1,30 @@
 import React from 'react'
-import { View, Text, Image, SafeAreaView } from 'react-native'
+import { View, Text, Image } from 'react-native'
 import s from './style'
+import FEED_DATA from '../../../assets/data/feed'
 
-const Post = () => {
+const Post: React.FC<{ data: typeof FEED_DATA[0] }> = ({ data }) => {
   return (
-    <SafeAreaView>
-      <View style={s.container}>
-        <Image
-          style={s.image}
-          source={{
-            uri:
-              'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/images/1.jpg',
-          }}
-        />
-        <Text style={s.bedroomText}>1 bed 1 bedroom</Text>
-        <Text style={s.description} numberOfLines={2}>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed,
-          excepturi voluptate! Doloremque enim, rerum similique laborum
-          voluptatibus eius hic saepe?
-        </Text>
+    <View style={s.container}>
+      <Image
+        style={s.image}
+        source={{
+          uri: data.image,
+        }}
+      />
+      <Text style={s.bedroomText}>
+        {data.bed} bed {data.bedroom} bedroom
+      </Text>
+      <Text style={s.description} numberOfLines={2}>
+        {data.title}
+      </Text>
 
-        <Text style={s.prices}>
-          <Text style={s.oldPrice}>$36</Text>
-          <Text style={s.newPrice}> $30</Text> / night
-        </Text>
-        <Text style={s.totalPrice}>$200 total</Text>
-      </View>
-    </SafeAreaView>
+      <Text style={s.prices}>
+        <Text style={s.oldPrice}>${data.oldPrice}</Text>
+        <Text style={s.newPrice}> ${data.newPrice}</Text> / night
+      </Text>
+      <Text style={s.totalPrice}>${data.totalPrice} total</Text>
+    </View>
   )
 }
 
