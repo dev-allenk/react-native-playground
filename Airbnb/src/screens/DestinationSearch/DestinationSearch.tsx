@@ -5,6 +5,9 @@ import s from './style'
 import SEARCH_DATA from '../../../assets/data/search'
 
 import Entypo from 'react-native-vector-icons/Entypo'
+import { Pressable } from 'react-native'
+import { useNavigation } from '@react-navigation/native'
+import SCREENS from '../../navigations/path'
 
 const DestinationSearchScreen = () => {
   const [textValue, setValue] = useState('')
@@ -27,13 +30,17 @@ const DestinationSearchScreen = () => {
 }
 
 const Destination: React.FC<{ data: typeof SEARCH_DATA[0] }> = ({ data }) => {
+  const navigation = useNavigation()
+
   return (
-    <View style={s.destinationContainer}>
+    <Pressable
+      style={s.destinationContainer}
+      onPress={() => navigation.navigate(SCREENS.guests)}>
       <View style={s.iconContainer}>
         <Entypo name="location-pin" size={25} color={'#000'} />
       </View>
       <Text>{data.description}</Text>
-    </View>
+    </Pressable>
   )
 }
 
