@@ -1,5 +1,7 @@
+import { useNavigation } from '@react-navigation/native'
 import React, { useState } from 'react'
 import { View, Text, Pressable } from 'react-native'
+import SCREENS from '../../navigations/path'
 import s from './style'
 
 const GUEST_DATA = [
@@ -11,9 +13,13 @@ const GUEST_DATA = [
 const GuestsScreen = () => {
   return (
     <View style={s.container}>
-      {GUEST_DATA.map(data => (
-        <GuestRow key={data.title} {...data} />
-      ))}
+      <View>
+        {GUEST_DATA.map(data => (
+          <GuestRow key={data.title} {...data} />
+        ))}
+      </View>
+
+      <SearchButton />
     </View>
   )
 }
@@ -45,4 +51,15 @@ function GuestRow({ title, subTitle }: typeof GUEST_DATA[0]) {
   )
 }
 
+function SearchButton() {
+  const navigation = useNavigation()
+
+  return (
+    <Pressable
+      style={s.searchButton}
+      onPress={() => navigation.navigate(SCREENS.searchResults)}>
+      <Text style={s.searchButtonText}>Search</Text>
+    </Pressable>
+  )
+}
 export default GuestsScreen

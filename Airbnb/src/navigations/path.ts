@@ -10,6 +10,7 @@ const SCREENS = {
   destinationSearch: 'Destination Search',
   home: 'Home',
   guests: 'Guests',
+  searchResults: 'Search Results',
 }
 
 export default SCREENS
