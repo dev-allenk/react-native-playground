@@ -5,6 +5,7 @@ import DestinationSearchScreen from '../screens/DestinationSearch'
 import SCREENS from './path'
 import HomeTabNavigator from './HomeTabNavigator'
 import GuestsScreen from '../screens/Guests'
+import PostDetailScreen from '../screens/PostDetail'
 
 const Stack = createStackNavigator()
 
@@ -24,6 +25,7 @@ const Router = () => {
         />
 
         <Stack.Screen name={SCREENS.guests} component={GuestsScreen} />
+        <Stack.Screen name={SCREENS.postDetail} component={PostDetailScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   )

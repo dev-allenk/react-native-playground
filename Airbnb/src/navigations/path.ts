@@ -11,6 +11,7 @@ const SCREENS = {
   home: 'Home',
   guests: 'Guests',
   searchResults: 'Search Results',
+  postDetail: 'Post detail',
 }
 
 export default SCREENS
